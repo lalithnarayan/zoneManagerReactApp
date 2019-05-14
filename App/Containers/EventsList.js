@@ -136,13 +136,13 @@ class EventsList extends Component {
       <Container>
         <HeaderComponent title={"Events"} {...this.props} />
         {this.renderContent()}
-        <LoadingOverlay
+        {/* <LoadingOverlay
           visible={fetching}
           color="white"
           indicatorSize="large"
           messageFontSize={24}
           message="Loading..."
-        />
+        /> */}
       </Container>
 
     )

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image, TouchableOpacity } from 'react-native';
+import { View, Text, Image, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
 import PropTypes from 'prop-types';
 import { ParallaxImage } from 'react-native-snap-carousel';
 import styles from './Styles/SliderEntryStyle'
@@ -28,6 +28,11 @@ export default class SliderEntry extends Component {
         );
     }
 
+    imageClicked(){
+        alert("Hello Testing.... ");
+    }
+    
+
     render () {
         const { data, even } = this.props;
 
@@ -37,7 +42,8 @@ export default class SliderEntry extends Component {
               style={styles.slideInnerContainer}
               >
                 <View style={styles.shadow} />
-                <View style={[styles.imageContainer, even ? styles.imageContainerEven : {}]}>
+                <View
+                    style={[styles.imageContainer, even ? styles.imageContainerEven : {}]}>
                     { this.image }
                     <View style={[styles.radiusMask, even ? styles.radiusMaskEven : {}]} />
                 </View>

@@ -26,6 +26,7 @@ import EventDetailScreen from '../Containers/EventDetail';
 import FeedbackScreen from '../Containers/FeedbackScreen';
 import FeedbackList from '../Containers/FeedbackList';
 import FeedbackDetailScreen from '../Containers/FeedbackDetail';
+import FullScreenImages from '../Containers/FullScreenImages';
 
 import UserSettings from '../Containers/UserSettings';
 
@@ -65,6 +66,9 @@ const MyDrawerNavigator = createDrawerNavigator({
   },
   FeedbackDetailScreen: {
     screen: FeedbackDetailScreen,
+  },
+  FullScreenImages:{
+    screen: FullScreenImages,
   },
   UserSettings: {
     screen: UserSettings,
