@@ -13,6 +13,7 @@ class AppointmentCreateScreen extends Component {
   static navigationOptions = {
     title: 'ಸಮಯಾವಕಾಶ ಕೋರಿಕೆ',
     headerBackTitle: null,
+    color: '#F97D09'
   }
 
   componentWillReceiveProps(nextProps) {

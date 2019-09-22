@@ -65,7 +65,7 @@ const tabBarOptions = {
 
 const headerTitleStyle = {
   fontSize: 18,
-  color: '#fff'
+  color: '#F97D09'
 }
 
 const HeaderBackImageWrapper = styled.View`
@@ -77,8 +77,20 @@ const HeaderBackImageWrapper = styled.View`
 
 const defaultStackNavigatorHeaderStyle = {
   headerStyle: {
-    backgroundColor: '#F97D09',
-    borderBottomColor: '#F97D09'
+    // backgroundColor: '#F97D09',
+    // borderBottomColor: '#F97D09',
+    // borderBottomWidth: 1,
+    borderTopColor: '#F97D09',
+    borderTopWidth: 1,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.15,
+    shadowRadius: 3.84,
+
+    elevation: 2,
   },
   headerTitleStyle,
   headerTintColor: '#32ce89',

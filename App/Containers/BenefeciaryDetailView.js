@@ -15,6 +15,7 @@ class BenefeciaryDetailView extends Component {
   static navigationOptions = {
     title: 'ಫಲಾನುಭವಿಗಳು',
     headerBackTitle: null,
+    color: '#F97D09'
   }
   refreshPage() {
     const { navigation, fetching } = this.props;
