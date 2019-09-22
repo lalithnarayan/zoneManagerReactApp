@@ -1,16 +1,24 @@
 import React, { Component } from 'react'
+import styled from 'styled-components/native'
 import { connect } from 'react-redux'
-import { AsyncStorage, TouchableOpacity, Image, FlatList } from 'react-native'
-import { Container, Content, Icon, Text, View } from 'native-base'
+import { AsyncStorage, TouchableOpacity, FlatList } from 'react-native'
+import { Container, Content } from 'native-base'
 import BeneficiaryActions from '../Redux/BeneficiaryRedux'
 import { format } from 'date-fns';
-import { CustomActivityIndicator } from '../Components/ui';
+import { CustomActivityIndicator, LinkButton, CoursePriceTag } from '../Components/ui';
+import { DevWorksFIlterForm } from '../Components/forms'
 import FooterComponent from '../Components/ListFooter';
 import ErrorPage from '../Components/NetworkErrorScreen';
 import { NavigationEvents } from 'react-navigation';
 import ListCardComponent from '../Components/ListCardComponent';
 import EmptyListComponent from '../Components/EmptyList';
 
+
+const StyledBadge = styled.View`
+justify-content: center;
+align-items: center;
+display: flex;
+`;
 
 function randomString(length, chars) {
   var result = '';
@@ -23,28 +31,61 @@ class BeneficiaryList extends Component {
     title: 'ಫಲಾನುಭವಿಗಳು',
   }
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      showFilter: false,
+    }
+  }
+
+
+  toggleFilter = () => {
+    const { showFilter } = this.state;
+    this.setState({
+      showFilter: !showFilter,
+    });
+  }
+
   componentDidMount() {
     this.goToPage('first');
   }
 
-  goToPage = (option) => {
+  onFormSubmit = ({ panchayat_id, panchayat_name }) => {
+    this.onTableFetchRequest(1, panchayat_id);
+    this.setState({
+      showFilter: false,
+      panchayat_id,
+      panchayat_name,
+    });
+  }
+
+  onClearFilter = () => {
+    this.setState({
+      showFilter: false,
+      panchayat_id: '',
+      panchayat_name: '',
+    });
+    this.onTableFetchRequest(1);
+  }
+
+  goToPage = (option, panchayatID) => {
     const { lastCalledPage } = this.props;
     if (option === 'next') {
-      this.onTableFetchRequest(lastCalledPage + 1);
+      this.onTableFetchRequest(lastCalledPage + 1, panchayatID );
     } else if (option === 'prev') {
-      this.onTableFetchRequest(lastCalledPage - 1 >= 0 ? lastCalledPage - 1 : 1);
+      this.onTableFetchRequest(lastCalledPage - 1 >= 0 ? lastCalledPage - 1 : 1, panchayatID);
     } else if (option === 'first') {
-      this.onTableFetchRequest(1);
+      this.onTableFetchRequest(1, panchayatID);
     } else if (option === 'refresh') {
-      this.onTableFetchRequest(lastCalledPage);
+      this.onTableFetchRequest(lastCalledPage, panchayatID);
     }
   }
 
-  onTableFetchRequest = (pageID) => {
+  onTableFetchRequest = (pageID, panchayatID) => {
     const { fetching } = this.props;
     AsyncStorage.getItem('accessToken').then((accessToken) => {
       if (!fetching) {
-        this.props.getListData(accessToken, pageID);
+        this.props.getListData(accessToken, pageID, panchayatID);
       }
     });
   }
@@ -75,15 +116,29 @@ class BeneficiaryList extends Component {
 
   renderContent = () => {
     const { listError, data } = this.props;
+    const { panchayat_name } = this.state;
     if (listError) {
       return <ErrorPage status={listError} onButtonClick={() => this.onTableFetchRequest(1)} />
     }
     return (
       <Content>
+        {
+          data.length ? <LinkButton
+            text={"ಫಿಲ್ಟರ್ ಮಾಡಿ"}
+            onPress={() => this.toggleFilter()}
+          /> : null
+        }
+        <StyledBadge>
+          {
+            panchayat_name ? <React.Fragment>
+              <CoursePriceTag price={panchayat_name} showCloseButton onClick={() => this.onClearFilter()} />
+            </React.Fragment> : null
+          }
+        </StyledBadge>
         <FlatList
           keyExtractor={() => randomString(6, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')}
           data={data}
-          ListEmptyComponent={()=> <EmptyListComponent onButtonClick={() => this.onTableFetchRequest(1)} />}
+          ListEmptyComponent={() => <EmptyListComponent onButtonClick={() => this.onTableFetchRequest(1)} />}
           renderItem={({ item }) => (
             <TouchableOpacity onPress={() => this.goToDetailView(item)}>
               <ListCardComponent
@@ -99,27 +154,41 @@ class BeneficiaryList extends Component {
 
   render() {
     const { fetching, lastCalledPage, data } = this.props;
+    const { showFilter, panchayat_id } = this.state;
     return (
       <Container>
         <NavigationEvents
-          onDidFocus={() => this.goToPage('first')}
+          onDidFocus={() => this.goToPage('first', panchayat_id)}
         />
-
-        {this.renderContent()}
         {
-          fetching ? <CustomActivityIndicator /> : null
+          !showFilter ?
+            <React.Fragment>
+              {this.renderContent()}
+              {
+                fetching ? <CustomActivityIndicator /> : null
+              }
+              <FooterComponent
+                goToFirstPage={() => this.goToPage('first', panchayat_id)}
+                goToNextPage={() => this.goToPage('next', panchayat_id)}
+                goToPrevPage={() => this.goToPage('prev', panchayat_id)}
+                refreshPage={() => this.goToPage('refresh', panchayat_id)}
+                data={data}
+                currentPage={lastCalledPage}
+              />
+            </React.Fragment> : <Content contentContainerStyle={{
+              flexGrow: 1,
+              backgroundColor: '#F1F2F6'
+            }}>
+              <DevWorksFIlterForm
+                loading={fetching}
+                onSubmit={values => this.onFormSubmit(values)}
+                onCancel={() => { this.toggleFilter(); }}
+                onClearFilter={() => this.onClearFilter()}
+                panchayat_id={panchayat_id}
+              />
+            </Content>
         }
-        <FooterComponent
-          goToFirstPage={() => this.goToPage('first')}
-          goToNextPage={() => this.goToPage('next')}
-          goToPrevPage={() => this.goToPage('prev')}
-          refreshPage={() => this.goToPage('refresh')}
-          data={data}
-          currentPage={lastCalledPage}
-        />
       </Container>
-
-
     )
   }
 }
@@ -136,8 +205,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getListData: (accessToken, pageNo, lastCalledPage) =>
-      dispatch(BeneficiaryActions.beneficiaryOnListRequest(accessToken, pageNo, lastCalledPage))
+    getListData: (accessToken, pageNo, panchayatID) =>
+      dispatch(BeneficiaryActions.beneficiaryOnListRequest(accessToken, pageNo, panchayatID))
   }
 }
 

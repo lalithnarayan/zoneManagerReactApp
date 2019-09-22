@@ -95,6 +95,7 @@ class EditProfile extends React.Component {
                 loading={loading}
                 onSubmit={values => this.onFormSubmit(values)}
                 initialValues={this.formatUserObj(userObj.citizen)}
+                placeName={userObj.citizen.placeName}
               />
             }
           </PageContentWrapper>

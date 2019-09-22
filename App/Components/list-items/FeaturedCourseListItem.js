@@ -14,9 +14,8 @@ const Wrapper = styled.TouchableOpacity`
 const CourseTitle = styled.Text.attrs({
   numberOfLines: 2
 })`
- 
-  font-size: 15;
-  margin-top: 8;
+  font-weight: bold;
+  margin-top: 2;
 `
 
 const PricesWrapper = styled.View`

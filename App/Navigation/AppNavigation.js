@@ -64,8 +64,8 @@ const tabBarOptions = {
 }
 
 const headerTitleStyle = {
-  fontSize: 20,
-  color: '#000'
+  fontSize: 18,
+  color: '#fff'
 }
 
 const HeaderBackImageWrapper = styled.View`
@@ -77,8 +77,8 @@ const HeaderBackImageWrapper = styled.View`
 
 const defaultStackNavigatorHeaderStyle = {
   headerStyle: {
-    backgroundColor: '#fff',
-    borderBottomColor: 'transparent'
+    backgroundColor: '#F97D09',
+    borderBottomColor: '#F97D09'
   },
   headerTitleStyle,
   headerTintColor: '#32ce89',
@@ -128,7 +128,7 @@ const DashboardTabNavigator = createBottomTabNavigator(
     navigationOptions: ({ navigation }) => {
       return {
         headerTitle: getDashboardNavigatorHeaderTitle(navigation),
-        headerRight: getNavigationHeaderRight(navigation),
+        headerLeft: getNavigationHeaderRight(navigation),
         gesturesEnabled: false,
         headerBackTitle: null,
         ...defaultStackNavigatorHeaderStyle

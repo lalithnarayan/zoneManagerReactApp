@@ -165,7 +165,7 @@ class BeneficiaryList extends Component {
     return (
       <Container>
         <NavigationEvents
-          onDidFocus={() => this.goToPage('first')}
+          onDidFocus={() => this.goToPage('first', panchayat_id)}
         />
         {
           !showFilter ?

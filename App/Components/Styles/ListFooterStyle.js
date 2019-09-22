@@ -3,7 +3,8 @@ import { StyleSheet } from 'react-native'
 export default StyleSheet.create({
   container: {
     backgroundColor: '#e9ebeb',
-    // flexDirection: 'column',
+    borderColor: '#F97D09',
+    borderWidth: 1,
   },
 
   smn: {

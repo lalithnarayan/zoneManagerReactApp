@@ -24,6 +24,7 @@ const Heading = styled.Text`
   font-size: 15;
   padding: 16px 16px 8px;
   margin-bottom: 10;
+  font-weight: bold;
 `
 
 class HomeScreen extends React.Component {

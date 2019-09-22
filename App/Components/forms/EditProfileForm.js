@@ -29,7 +29,7 @@ const validationSchema = yup.object().shape({
 })
 
 
-export default function EditProfileForm({ loading, onSubmit, positions, initialValues }) {
+export default function EditProfileForm({ loading, onSubmit, positions, initialValues, placeName }) {
   return (
     <Formik
       initialValues={initialValues}
@@ -76,6 +76,7 @@ export default function EditProfileForm({ loading, onSubmit, positions, initialV
               value={props.values.place_id}
               onChange={({ id }) => props.setFieldValue('place_id', id)}
               error={props.errors.place_id}
+              name={placeName}
             />
   
             <SelectField

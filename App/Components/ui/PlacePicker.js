@@ -82,6 +82,7 @@ class PlacePicker extends Component {
     super(props);
     this.state = {
       dataSource: ds.cloneWithRows([]),
+      place_name: props.name || '',
     };
     this.searchLocation = this.searchLocation.bind(this);
     this.renderRow = this.renderRow.bind(this);

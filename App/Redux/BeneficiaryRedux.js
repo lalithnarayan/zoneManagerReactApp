@@ -4,7 +4,7 @@ import Immutable from 'seamless-immutable'
 /* ------------- Types and Action Creators ------------- */
 
 const { Types, Creators } = createActions({
-  beneficiaryOnListRequest: ['accessToken', 'pageNo'],
+  beneficiaryOnListRequest: ['accessToken', 'pageNo', 'panchayat_id'],
   beneficiaryOnListSuccess: ['listData', 'pageNo'],
   beneficiaryOnListFailure: ['errorCode'],
   beneficiaryOnListReset: ['payload'],

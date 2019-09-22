@@ -3,15 +3,11 @@ import PropTypes from 'prop-types'
 import { Button } from 'native-base'
 import styled from 'styled-components/native'
 
-const Wrapper = styled(Button).attrs({
-  full: true,
-  rounded: true
-})`
+const Wrapper = styled.TouchableOpacity`
   height: 50;
   justify-content: center;
   align-items: center;
   margin: 25px 0px 10px;
-  background-color: transparent;
 `
 
 const ButtonText = styled.Text.attrs({

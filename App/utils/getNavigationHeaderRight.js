@@ -4,12 +4,11 @@ import styled from 'styled-components/native'
 import { Images } from '../Themes'
 
 const onIconPress = (navigation, routeName) => {
-
   if (routeName === 'Profile') {
     navigation.navigate('EditProfile')
   }
 }
-const profilePhotoDimensions = 40
+const profilePhotoDimensions = 35
 const ProfilePhoto = styled.Image.attrs({
   source: Images.sunil,
 })`
@@ -18,7 +17,7 @@ const ProfilePhoto = styled.Image.attrs({
   border-radius: ${profilePhotoDimensions / 2};
   border-color: #fff;
   align-self: center;
-  margin-right: 10;
+  margin-left: 10;
 `
 export default function getNavigationHeaderRight(navigation) {
   const { routeName } = navigation.state.routes[navigation.state.index];

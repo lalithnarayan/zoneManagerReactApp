@@ -4,7 +4,6 @@ import { FlatList } from 'react-native'
 import styled from 'styled-components/native'
 import { ListLoadingComponent, ListEmptyComponent } from '../ui'
 import { FeaturedCourseListItem } from '../list-items'
-import { Images } from '../../Themes/';
 
 const Wrapper = styled.View`
   height: 250;
