@@ -10,7 +10,7 @@ const CourseDetailsWrapper = styled.View`
   margin-left: 8;
 `
 
-const LessonType = styled(SubHeading)`
+export const LessonType = styled(SubHeading)`
   font-size: 10;
   margin-bottom: 8;
   font-weight: bold;

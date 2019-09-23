@@ -81,6 +81,7 @@ class BeneficiaryList extends Component {
         title: data.name,
         image: data.image,
         subTitle: data.department,
+        subTitleLabel: 'ಇಲಾಖೆ',
         desc: data.desc,
         createdDate: data.created_at ? format(new Date(data.created_at), 'DD-MM-YYYY') : 'NA',
         lastUpdatedAt: data.updated_at ? format(new Date(data.updated_at), 'DD-MM-YYYY') : 'NA',

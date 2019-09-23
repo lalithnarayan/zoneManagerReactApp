@@ -58,6 +58,7 @@ class EventsList extends Component {
       {
         title: data.name,
         images: data.images,
+        subTitleLabel: 'ಸ್ಥಳ',
         subTitle: data.venue,
         desc: data.details,
         createdDate: data.created_at ? format(new Date(data.created_at), 'DD-MM-YYYY') : 'NA',

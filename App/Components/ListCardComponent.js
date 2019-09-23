@@ -22,6 +22,10 @@ const CourseTitle = styled.Text.attrs({
 
 const PricesWrapper = styled.View`
   flex-direction: row;
+  font-size: 10;
+  color: #8a8a8f;
+  margin-top: 2;
+  margin-bottom: 2;
 `
 
 const DetailsWrapper = styled.View`
@@ -38,13 +42,14 @@ const SellingPrice = styled.Text`
   font-size: 15;
   margin-top: 4;
 `
-
-const OriginalPrice = styled(SellingPrice)`
-
-  color: #8a8a8f;
-  text-decoration: line-through;
-  margin-left: 8;
-`
+const SubtitleLabel = styled.Text`
+font-size: 10;
+font-weight: bold;
+letter-spacing: 2;
+text-decoration-style: dotted;
+color: #8a8a8f;
+margin-top: 4;
+`;
 function randomString(length, chars) {
   var result = '';
   for (var i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
@@ -53,7 +58,7 @@ function randomString(length, chars) {
 export default function ListCardComponent({
   title,
   image,
-  onPress,
+  subTitleLabel,
   subTitle,
   metaData,
 }) {
@@ -61,13 +66,14 @@ export default function ListCardComponent({
     <Wrapper key={randomString(4, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')}>
       {
         image ?
-        <ImageProgressComponent
-          photoURL={image}
-          resizeMode="cover"
-          style={{ flex: 1, width: null, height: 180 }}
-        /> : null
+          <ImageProgressComponent
+            photoURL={image}
+            resizeMode="cover"
+            style={{ flex: 1, width: null, height: 180 }}
+          /> : null
       }
       <CourseTitle>{title}</CourseTitle>
+      {subTitleLabel ? <SubtitleLabel>{subTitleLabel}</SubtitleLabel> : null}
       <PricesWrapper>
         <SellingPrice>{subTitle}</SellingPrice>
       </PricesWrapper>
@@ -75,13 +81,13 @@ export default function ListCardComponent({
         {metaData.map((item, index) => (
           <DetailsItem>
             <CourseLessonListItem
-              position={index  % 2 ? 'left' : 'right'}
+              position={index % 2 ? 'left' : 'right'}
               key={index}
               number={index + 1}
               {...item}
             />
           </DetailsItem>
-          ))}
+        ))}
       </DetailsWrapper>
 
     </Wrapper>

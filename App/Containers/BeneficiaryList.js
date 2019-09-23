@@ -100,6 +100,7 @@ class BeneficiaryList extends Component {
       {
         title: data.beneficiary_name,
         image: data.image,
+        subTitleLabel: 'ಯೋಜನೆ ಪ್ರಕಾರ',
         subTitle: data.scheme_type,
         desc: data.granted_relief,
         createdDate: data.created_at ? format(new Date(data.created_at), 'DD-MM-YYYY') : 'NA',
