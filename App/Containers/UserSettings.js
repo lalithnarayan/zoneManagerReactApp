@@ -54,7 +54,7 @@ class UserSettings extends Component {
   
   render() {
     const { fetching, navigation, userObj } = this.props;
-    const user = userObj && userObj.user ? userObj.user : {};
+    const user = userObj && userObj.citizen ? userObj.citizen : {};
     return (
       <SafeAreaViewWrapper>
         <Container>
@@ -64,6 +64,7 @@ class UserSettings extends Component {
               <UserDetailsWrapper>
                 <UsernameText>{user.name}</UsernameText>
                 <PointsText>{user.phone}</PointsText>
+                <PointsText>{user.place_name}</PointsText>
               </UserDetailsWrapper>
             </ProfileHeroWrapper>
             <SectionHeader>ಸೆಟ್ಟಿಂಗ್‌ಗಳು</SectionHeader>

@@ -28,7 +28,7 @@ export const DetailsWrapper = styled.TouchableOpacity`
 `
 
 export const Title = styled.Text.attrs({
-  numberOfLines: 1
+  // numberOfLines: 1
 })`
  
   font-size: 14;

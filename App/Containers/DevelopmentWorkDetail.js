@@ -21,7 +21,7 @@ class DevelopmentWorkDetail extends Component {
     if (parentProps && parentProps.id) {
       AsyncStorage.getItem('accessToken').then((accessToken) => {
         if (!fetching) {
-          this.props.getDetailsForSelection(accessToken, parentProps.id, );
+          this.props.getDetailsForSelection(accessToken, parentProps.id);
         }
       });
     }
@@ -36,13 +36,14 @@ class DevelopmentWorkDetail extends Component {
       desc: data.desc,
       createdDate: data.created_at ? format(new Date(data.created_at), 'DD-MM-YYYY') : 'NA',
       lastUpdatedAt: data.updated_at ? format(new Date(data.updated_at), 'DD-MM-YYYY') : 'NA',
-      metaData: [ 
-        {title: 'ಸ್ಥಳ', description: data.place},
-        {title: 'ಮಂಜೂರಾದ ಮೊತ್ತ', description: data.sanctioned_amount, hasIcon: true, iconName: 'cash-multiple', isCash: true, },
-        {title: 'ಹಾಲಿ ಸ್ಥಿತಿ', description: data.status},
-        {title: 'ಅಡಿಗಲ್ಲು ದಿನಾಂಕ', description: data.foundation_date, iconName: 'calendar', hasIcon: true},
-        {title: 'ಉದ್ಘಾಟನೆ ದಿನಾಂಕ', description: data.inaugration_date, iconName: 'calendar', hasIcon: true},
-        {title: 'ಷರಾ', description: data.remarks},
+      metaData: [
+        { title: 'ಸ್ಥಳ', description: data.place },
+        { title: 'ಕೆಲಸದ ವಿಧ', description: data.type_of_work },
+        { title: 'ಮಂಜೂರಾದ ಮೊತ್ತ', description: data.sanctioned_amount, hasIcon: true, iconName: 'cash-multiple', isCash: true, },
+        { title: 'ಹಾಲಿ ಸ್ಥಿತಿ', description: data.status },
+        { title: 'ಅಡಿಗಲ್ಲು ದಿನಾಂಕ', description: data.foundation_date, iconName: 'calendar', hasIcon: true },
+        { title: 'ಉದ್ಘಾಟನೆ ದಿನಾಂಕ', description: data.inaugration_date, iconName: 'calendar', hasIcon: true },
+        { title: 'ಷರಾ', description: data.remarks },
       ]
     };
     if (detailError) {
