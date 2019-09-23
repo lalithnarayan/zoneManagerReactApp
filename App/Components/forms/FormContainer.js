@@ -46,7 +46,7 @@ export default function FormContainer({
         }
         {
           showCancel && <LinkButton
-            text="ಕ್ಲೋಸ್ ಮಾಡಿ"
+            text="ಹಿಂತಿರುಗಿ ಹೋಗಿ"
             onPress={() => onCancelButtonPress()}
           />
 
