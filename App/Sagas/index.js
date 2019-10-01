@@ -1,10 +1,4 @@
-import { takeLatest, all, take } from 'redux-saga/effects'
-import API from '../Services/Api'
-import FixtureAPI from '../Services/FixtureApi'
-import DebugConfig from '../Config/DebugConfig'
-
-/* ------------- Types ------------- */
-
+import { takeLatest, all } from 'redux-saga/effects'
 import { LoginTypes } from '../Redux/LoginRedux'
 import { RootTypes } from '../Redux/RootRedux';
 import { BeneficiaryTypes } from '../Redux/BeneficiaryRedux'
@@ -12,21 +6,18 @@ import { DevWorkTypes } from '../Redux/DevelopmentWorkRedux';
 import { EventTypes } from '../Redux/EventRedux';
 import { FeedbackTypes } from '../Redux/FeedbackRedux';
 import { AppointmentTypes } from '../Redux/AppointmentRedux';
-import { ModuleTypes } from '../Redux/ModuleRedux';
-/* ------------- Sagas ------------- */
 
-// import { startup } from './StartupSagas'
-import { 
-    login, 
-    getOTP, 
-    // verifyOTP, 
-    singupRequest, 
-    onLogout, 
-    onResetPasswordAction, 
-    onVerifyUser,
-    getPlacesListForSearch,
-    getPositionsList,
-    getPanchayatsList,
+import {
+  login,
+  getOTP,
+  // verifyOTP, 
+  singupRequest,
+  onLogout,
+  onResetPasswordAction,
+  onVerifyUser,
+  getPlacesListForSearch,
+  getPositionsList,
+  getPanchayatsList,
 } from './LoginSaga'
 import { getUserDetails, editUserDetails } from './RootSagas';
 import { getBeneficiaryList, getBeneficiaryDetails } from './BeneficiarySagas'
@@ -38,11 +29,7 @@ import { getAppointmentsList, getAppointmentDetails, createAppointment } from '.
 // import { getAllPositions,  } from './VerifiedSignUpSagas'
 
 
-/* ------------- API ------------- */
 
-// The API we use is only used from Sagas, so we create it here and pass along
-// to the sagas which need it.
-const api = DebugConfig.useFixtures ? FixtureAPI : API.create()
 import BeneficiaryActions from '../Redux/BeneficiaryRedux';
 /* ------------- Connect Types To Sagas ------------- */
 export default function* root() {
@@ -59,25 +46,25 @@ export default function* root() {
     takeLatest(LoginTypes.GET_POSITIONS_LIST, getPositionsList),
     takeLatest(LoginTypes.GET_PRE_LOGIN_PLACES_LIST, getPlacesListForSearch),
     takeLatest(LoginTypes.GET_PANCHAYAT_LIST, getPanchayatsList),
-    
+
     // Root Redux
     takeLatest(RootTypes.GET_USER_DETAILS, getUserDetails),
     takeLatest(RootTypes.UPDATE_USER_DETAILS, editUserDetails),
     // Beneficiary Module
     takeLatest(BeneficiaryTypes.BENEFICIARY_ON_LIST_REQUEST, getBeneficiaryList),
     takeLatest(BeneficiaryTypes.BENEFICIARY_ON_DETAIL_REQUEST, getBeneficiaryDetails),
-    
+
     // Development Module
     takeLatest(DevWorkTypes.DEV_WORK_ON_LIST_REQUEST, getDevWorksList),
     takeLatest(DevWorkTypes.DEV_WORK_ON_DETAIL_REQUEST, getDevWorkDetails),
-    
+
     // Feedback Module
     takeLatest(FeedbackTypes.GET_PLACES_LIST, getPlacesListForSearchParam),
     takeLatest(FeedbackTypes.GET_DEPARTMENTS_LIST, getDepartmentsList),
-    takeLatest(FeedbackTypes.FEEDBACK_ON_LIST_REQUEST,getFeedbackList),
-    takeLatest(FeedbackTypes.FEEDBACK_ON_DETAIL_REQUEST,getFeedbackDetails),
+    takeLatest(FeedbackTypes.FEEDBACK_ON_LIST_REQUEST, getFeedbackList),
+    takeLatest(FeedbackTypes.FEEDBACK_ON_DETAIL_REQUEST, getFeedbackDetails),
     takeLatest(FeedbackTypes.CREATE_FEEDBACK, createFeedback),
-    
+
     // // Appointment Module
     takeLatest(AppointmentTypes.APPOINTMENT_ON_LIST_REQUEST, getAppointmentsList),
     takeLatest(AppointmentTypes.APPOINTMENT_ON_DETAIL_REQUEST, getAppointmentDetails),
@@ -87,8 +74,5 @@ export default function* root() {
     takeLatest(EventTypes.EVENT_ON_DETAIL_REQUEST, getEventDetails),
     takeLatest(EventTypes.OLD_EVENT_ON_LIST_REQUEST, getLastWeekEventsList),
 
-    // // Generic Module 
-    // takeLatest(ModuleTypes.MODULE_ON_LIST_REQUEST, getModuleList),
-    // takeLatest(ModuleTypes.MODULE_ON_DETAIL_REQUEST, getModuleDetails),
   ])
 }

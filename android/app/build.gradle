@@ -148,14 +148,12 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-gesture-handler')
     compile project(':react-native-exit-app')
     compile project(':react-native-image-resizer')
     compile project(':react-native-image-picker')
     compile project(':react-native-vector-icons')
-    compile project(':react-native-splash-screen')
-    compile project(':react-native-localize')
     compile project(':react-native-i18n')
-    compile project(':react-native-gesture-handler')
     compile project(':react-native-device-info')
     compile project(':react-native-config')
     compile project(':@react-native-community_async-storage')

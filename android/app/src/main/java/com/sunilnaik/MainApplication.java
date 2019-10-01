@@ -3,14 +3,12 @@ package com.sunilnaik;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.github.wumke.RNExitApp.RNExitAppPackage;
 import fr.bamlab.rnimageresizer.ImageResizerPackage;
 import com.imagepicker.ImagePickerPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
-import org.devio.rn.splashscreen.SplashScreenReactPackage;
-import com.reactcommunity.rnlocalize.RNLocalizePackage;
 import com.AlexanderZaytsev.RNI18n.RNI18nPackage;
-import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.learnium.RNDeviceInfo.RNDeviceInfo;
 import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
 import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
@@ -34,14 +32,12 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNGestureHandlerPackage(),
             new RNExitAppPackage(),
             new ImageResizerPackage(),
             new ImagePickerPackage(),
             new VectorIconsPackage(),
-            new SplashScreenReactPackage(),
-            new RNLocalizePackage(),
             new RNI18nPackage(),
-            new RNGestureHandlerPackage(),
             new RNDeviceInfo(),
             new ReactNativeConfigPackage(),
             new AsyncStoragePackage()
