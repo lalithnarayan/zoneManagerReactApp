@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components/native';
-import { AsyncStorage, TouchableOpacity, FlatList } from 'react-native'
+import {TouchableOpacity, FlatList } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import { Container, Content, View } from 'native-base'
 import { format } from 'date-fns';
 import { CustomActivityIndicator, RegularButton } from '../Components/ui';

@@ -1,7 +1,8 @@
 import React from 'react'
 import { Container } from 'native-base'
 import { connect } from 'react-redux'
-import { AsyncStorage, Platform, BackHandler, Alert } from 'react-native'
+import { Platform, BackHandler, Alert } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import styled from 'styled-components/native'
 import { SafeAreaViewWrapper, CustomStatusBar } from '../Components/ui'
 import { NavigationEvents } from 'react-navigation';
@@ -42,7 +43,7 @@ class SignInScreen extends React.Component {
   goToPage = (route) => {
     const { navigation } = this.props;
       navigation.navigate(route);
-      this.props.onNavigationResetState(); 
+      this.props.onNavigationResetState();
 
   }
   onFormSubmit(values) {
@@ -50,7 +51,7 @@ class SignInScreen extends React.Component {
     const { phone, password } = values
     this.props.attemptLogin(phone, password);
   }
-  
+
   handleBackButton = () => {
     Alert.alert(
       'Exit App',

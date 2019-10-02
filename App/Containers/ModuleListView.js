@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { AsyncStorage, StatusBar, TouchableOpacity, RefreshControl, StyleSheet, Image, ImageBackground, Dimensions, ScrollView, Platform, SafeAreaView, FlatList, ToolbarAndroid } from 'react-native'
+import { StatusBar, TouchableOpacity, RefreshControl, StyleSheet, Image, ImageBackground, Dimensions, ScrollView, Platform, SafeAreaView, FlatList, ToolbarAndroid } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import { Container, Header, Content, Button, Icon, Text, Card, Left, Right, Body, Input, Footer, View, FooterTab, Badge, CheckBox } from 'native-base'
 import { connect } from 'react-redux';
 import LoadingOverlay from '../Components/LoadingOverlay';

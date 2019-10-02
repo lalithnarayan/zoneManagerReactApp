@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { AsyncStorage } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import { Container } from 'native-base';
 import { connect } from 'react-redux';
 import { format } from 'date-fns';
@@ -36,7 +36,7 @@ class FeedbackDetailView extends Component {
       desc: data.venue,
       createdDate: data.created_at ? format(new Date(data.created_at), 'DD-MM-YYYY') : 'NA',
       lastUpdatedAt: data.updated_at ? format(new Date(data.updated_at), 'DD-MM-YYYY') : 'NA',
-      metaData: [ 
+      metaData: [
         { title:'ಸಂಘ ಸಂಸ್ಥೆ/ವ್ಯಕ್ತಿಯ ಹೆಸರು', description: data.organisation},
         { title: 'ಕೋರಿಕೆಯ ದಿನಾಂಕ', description: data.req_date },
         { title: 'ಕೋರಿಕೆಯ ಸಮಯ', description: format(new Date(data.req_time), 'hh:mm A') },

@@ -58,3 +58,6 @@ buck-out/
 # Misc
 #
 .env
+!debug.keystore
+# CocoaPods
+/ios/Pods/

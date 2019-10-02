@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AsyncStorage } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import { Container, Content } from 'native-base';
 import { format } from 'date-fns';
 import { connect } from 'react-redux';
@@ -27,7 +27,7 @@ class AppointmentCreateScreen extends Component {
     for (let property in values) {
       if (property !== 'photos') {
         if(property.includes('date') && values[property]) {
-          const dateObjToString  = format(values[property], 'DD-MM-YYYY') 
+          const dateObjToString  = format(values[property], 'DD-MM-YYYY')
           data.append(`appointment[${property}]`, dateObjToString);
         } else {
           data.append(`appointment[${property}]`, values[property]);

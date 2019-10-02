@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { AsyncStorage, TouchableOpacity, FlatList } from 'react-native'
+import { TouchableOpacity, FlatList } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import { Container, Content, View } from 'native-base'
 import { connect } from 'react-redux'
 import { format } from 'date-fns';

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { AsyncStorage } from 'react-native'
+import AsyncStorage from '@react-native-community/async-storage';
 import { Container } from 'native-base'
 import { connect } from 'react-redux'
 import { format } from 'date-fns';
@@ -39,7 +39,7 @@ class EventDetail extends Component {
       desc: data.details,
       createdDate: data.created_at ? format(new Date(data.created_at), 'DD-MM-YYYY') : 'NA',
       lastUpdatedAt: data.updated_at ? format(new Date(data.updated_at), 'DD-MM-YYYY') : 'NA',
-      metaData: [ 
+      metaData: [
         {title: 'ಸಮಯ', description: `${data.date} ${data.start_time ? format(new Date(data.start_time), 'hh:mm A') : ''} - ${data.end_time ? format(new Date(data.end_time), 'hh:mm A') : ''}`, iconName: 'calendar', hasIcon: true},
         {title: 'ಷರಾ', description: data.remarks},
       ]

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from 'native-base';
-import { AsyncStorage } from 'react-native'
+import AsyncStorage from '@react-native-community/async-storage';
 import { connect } from 'react-redux';
 import styled from 'styled-components/native';
 import { SafeAreaViewWrapper, CustomStatusBar } from '../Components/ui';

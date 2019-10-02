@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { AsyncStorage, View, Image } from 'react-native'
+import {View, Image } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import { connect } from 'react-redux'
 import LoginActions from '../Redux/LoginRedux'
 import RootActions from '../Redux/RootRedux'

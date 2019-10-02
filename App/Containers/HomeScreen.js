@@ -1,6 +1,7 @@
 import React from 'react'
 import { Container, Content } from 'native-base';
-import { AsyncStorage, BackHandler, Alert, Platform } from 'react-native'
+import { BackHandler, Alert, Platform } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import { connect } from 'react-redux'
 import { NavigationEvents } from 'react-navigation';
 import styled from 'styled-components/native'
