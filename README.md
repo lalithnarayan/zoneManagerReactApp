@@ -70,6 +70,23 @@ The `.env` file is ignored by git keeping those secrets out of your repo.
 
 ### Build and Release
 
+#### Upgrade Notes
+
+Post Update, the packages and things may break, to get all neatly done:
+```
+rm -rf node_modules;
+rm -rf $TMPDIR/react-native-packager-cache-*;
+rm -rf $TMPDIR/metro-*;
+rm -rf $TMPDIR/react-*;
+rm -rf $TMPDIR/haste-*;
+watchman watch-del-all;
+yarn;
+yarn start --reset-cache
+```
+
+Then go ahead with normal operations
+
+
 #### Development build
 
 1. Generate the js bundle
