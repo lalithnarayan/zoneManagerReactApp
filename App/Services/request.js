@@ -1,5 +1,5 @@
 export default function request(url, options) {
-  console.log(url, options);
+  // console.log(url, options);
   return fetch(url, options)
     .then(r => {
       return r.json().then(
