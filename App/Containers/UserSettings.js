@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Container, Content } from 'native-base';
-import { TouchableOpacity, FlatList } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import styled from 'styled-components/native'
 import {

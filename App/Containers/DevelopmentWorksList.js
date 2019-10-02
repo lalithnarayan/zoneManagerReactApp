@@ -5,7 +5,6 @@ import AsyncStorage from '@react-native-community/async-storage';
 import { Container, Content } from 'native-base'
 import styled from 'styled-components/native'
 import DevelopmentWorksActions from "../Redux/DevelopmentWorkRedux";
-import { format } from 'date-fns';
 import { DevWorksFIlterForm } from '../Components/forms'
 import { CustomActivityIndicator, LinkButton, CoursePriceTag } from '../Components/ui';
 import FooterComponent from '../Components/ListFooter';
@@ -76,17 +75,14 @@ class BeneficiaryList extends Component {
   }
 
   formatData(data) {
-    console.log(data);
     return (
       {
         title: data.name,
         image: data.image,
-        subTitle: data.department,
-        subTitleLabel: 'ಇಲಾಖೆ',
-        desc: data.desc,
-        createdDate: data.created_at ? format(new Date(data.created_at), 'DD-MM-YYYY') : 'NA',
-        lastUpdatedAt: data.updated_at ? format(new Date(data.updated_at), 'DD-MM-YYYY') : 'NA',
+        subTitle: data.desc,
+        subTitleLabel: 'ವಿವರಗಳು',
         metaData: [
+          { title: 'ಇಲಾಖೆ', description: data.department },
           { title: 'ಸ್ಥಳ', description: data.place },
           { title:'ಕೆಲಸದ ವಿಧ', description: data.type_of_work},
           { title: 'ಮಂಜೂರಾದ ಮೊತ್ತ', description: data.sanctioned_amount, hasIcon: true, iconName: 'cash-multiple', isCash: true, },

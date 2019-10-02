@@ -61,6 +61,7 @@ export default function ListCardComponent({
   subTitleLabel,
   subTitle,
   metaData,
+  desc,
 }) {
   return (
     <Wrapper key={randomString(4, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')}>
@@ -77,6 +78,7 @@ export default function ListCardComponent({
       <PricesWrapper>
         <SellingPrice>{subTitle}</SellingPrice>
       </PricesWrapper>
+      {desc ? <PricesWrapper>{desc}</PricesWrapper> : null}
       <DetailsWrapper>
         {metaData.map((item, index) => (
           <DetailsItem>

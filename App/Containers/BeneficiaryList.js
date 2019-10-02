@@ -104,8 +104,8 @@ class BeneficiaryList extends Component {
         subTitleLabel: 'ಯೋಜನೆ ಪ್ರಕಾರ',
         subTitle: data.scheme_type,
         desc: data.granted_relief,
-        createdDate: data.created_at ? format(new Date(data.created_at), 'DD-MM-YYYY') : 'NA',
-        lastUpdatedAt: data.updated_at ? format(new Date(data.updated_at), 'DD-MM-YYYY') : 'NA',
+        // createdDate: data.created_at ? format(new Date(data.created_at), 'DD-MM-YYYY') : 'NA',
+        // lastUpdatedAt: data.updated_at ? format(new Date(data.updated_at), 'DD-MM-YYYY') : 'NA',
         metaData: [
           { title: 'ಸ್ಥಳ', description: data.place },
           { title: 'ಅರ್ಜಿ ದಿನಾಂಕ', description: data.application_date },

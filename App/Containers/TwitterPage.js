@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { WebView } from 'react-native-webview';
-import { Container, Header, Content, Icon, View } from 'native-base'
+import { Container, Content } from 'native-base'
 import { connect } from 'react-redux'
 import { CustomActivityIndicator } from '../Components/ui';
 
@@ -42,14 +42,8 @@ class FacebookPage extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        //userObj: state.root.userDetails,
         fetching: state.root.fetching,
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(FacebookPage);
+export default connect(mapStateToProps, null)(FacebookPage);
