@@ -53,6 +53,15 @@ import TwitterScreen from '../Containers/TwitterPage';
 import HomeScreen from '../Containers/HomeScreen';
 
 
+import { YellowBox } from 'react-native';
+
+YellowBox.ignoreWarnings([
+  'Warning: componentWillMount has been renamed',
+  'Warning: componentWillUpdate has been renamed',
+  'Warning: componentWillReceiveProps has been renamed',
+  'Warning: componentWillReceiveProps has been renamed',
+]);
+
 const tabBarOptions = {
   activeTintColor: '#F97D09',
   inactiveTintColor: 'grey',

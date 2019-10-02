@@ -1,6 +1,6 @@
 import { put, call } from 'redux-saga/effects';
 import LoginActions from '../Redux/LoginRedux';
-import { AsyncStorage } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import BeneficiaryActions from '../Redux/BeneficiaryRedux';
 import DevelopmentWorkActions from '../Redux/DevelopmentWorkRedux';
 import EventActions from '../Redux/EventRedux';

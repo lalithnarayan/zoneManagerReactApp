@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Container, Content } from 'native-base';
-import { AsyncStorage, TouchableOpacity, FlatList } from 'react-native'
+import { TouchableOpacity, FlatList } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import styled from 'styled-components/native'
 import {
   SafeAreaViewWrapper,
@@ -51,7 +52,7 @@ class UserSettings extends Component {
     const { navigate } = this.props.navigation;
     this.deleteToken();
   }
-  
+
   render() {
     const { fetching, navigation, userObj } = this.props;
     const user = userObj && userObj.citizen ? userObj.citizen : {};
@@ -68,14 +69,14 @@ class UserSettings extends Component {
               </UserDetailsWrapper>
             </ProfileHeroWrapper>
             <SectionHeader>ಸೆಟ್ಟಿಂಗ್‌ಗಳು</SectionHeader>
-            <ProfileMenuOption 
+            <ProfileMenuOption
               iconName="md-person-add"
               iconColor="#278d27"
               text="ಪ್ರೊಫೈಲ್ ಮಾಹಿತಿಯ ಬದಲಾವಣೆ ಮಾಡಿ"
               onPress={() => {}}
               onPress={() => navigation.navigate('EditProfile')}
             />
-            <ProfileMenuOption 
+            <ProfileMenuOption
               iconName="md-log-out"
               iconColor="#000"
               text="

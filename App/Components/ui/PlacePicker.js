@@ -3,13 +3,13 @@ import PropTypes from 'prop-types'
 import { Item, Input, Text, Textarea } from 'native-base'
 import {
   View,
-  ListView,
   TouchableOpacity,
 } from 'react-native';
 import styled from 'styled-components/native'
 import ProgressiveInput from './typeAheadComponent';
 import { connect } from 'react-redux';
 import LoginActions from '../../Redux/LoginRedux'
+import ListView from 'deprecated-react-native-listview';
 
 const Wrapper = styled.View`
   margin: 8px 0px;

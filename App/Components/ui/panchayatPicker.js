@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { AsyncStorage } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import PropTypes from 'prop-types'
 import { Item, Picker, Text } from 'native-base'
 import styled from 'styled-components/native'

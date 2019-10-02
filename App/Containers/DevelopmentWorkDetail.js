@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
-import { AsyncStorage } from 'react-native'
+import AsyncStorage from '@react-native-community/async-storage';
 import { Container, Header, Content, Icon, Text, View } from 'native-base'
 import { format } from 'date-fns';
 import { NavigationEvents } from 'react-navigation';

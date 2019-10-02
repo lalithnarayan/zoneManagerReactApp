@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { AsyncStorage, TouchableOpacity, FlatList } from 'react-native'
+import { TouchableOpacity, FlatList } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import { Container, Content } from 'native-base'
 import styled from 'styled-components/native'
 import DevelopmentWorksActions from "../Redux/DevelopmentWorkRedux";
