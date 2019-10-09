@@ -33,7 +33,7 @@
     "lodash": "^4.17.11",
     "native-base": "^2.12.1",
     "prop-types": "^15.6.1",
-    "react": "16.6.1",
+    "react": "16.10.2",
     "react-native": "0.61.1",
     "react-native-24h-timepicker": "^1.0.0",
     "react-native-config": "^0.10.0",
