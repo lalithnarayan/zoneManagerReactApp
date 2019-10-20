@@ -3,8 +3,6 @@ import { StyleSheet } from 'react-native'
 export default StyleSheet.create({
   container: {
     backgroundColor: '#e9ebeb',
-    borderColor: '#F97D09',
-    borderWidth: 1,
   },
 
   smn: {
@@ -27,7 +25,6 @@ export default StyleSheet.create({
     marginRight: 5
   },
   smnText: {
-    // fontFamily: 'Montserrat-SemiBold',
     fontSize: 12,
     color: '#FFF',
     fontWeight: 'bold',

@@ -27,7 +27,7 @@ const DescriptionText = styled.Text.attrs({
 `
 
 const HeroWrapper = styled.View`
-  flex: 2;
+  flex: 1;
 `
 
 const Hero = styled.Image.attrs({
@@ -37,7 +37,7 @@ const Hero = styled.Image.attrs({
   flex: 1;
   width: null;
   height: null;
-  margin: 0px 0px 16px;
+  margin: 0px 0px 0px;
 `
 
 const StartButtonWrapper = styled(TopContentWrapper)`
@@ -57,18 +57,15 @@ export default class EmptyScreen extends React.Component {
     return (
       <Container>
         <CustomStatusBar />
-
         <TopContentWrapper>
           <PageTitle>ಪ್ರದರ್ಶಿಸಲು ಏನೂ ಇಲ್ಲ</PageTitle>
           <DescriptionText>
             ಈ ಸಮಯದಲ್ಲಿ ನಮಗೆ ತೋರಿಸಲು ಯಾವುದೇ ಮಾಹಿತಿ ಇಲ್ಲ
           </DescriptionText>
         </TopContentWrapper>
-
         <HeroWrapper>
           <Hero />
         </HeroWrapper>
-
         <StartButtonWrapper>
           <RegularButton
             text="ರಿಫ್ರೆಶ್ ಮಾಡಿ"

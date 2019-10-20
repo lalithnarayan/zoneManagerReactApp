@@ -1,16 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types';
-import { Card, View, Text } from 'native-base'
+import { Card } from 'native-base'
 import styled from 'styled-components/native'
 import { ImageProgressComponent } from './ui'
 import { CourseLessonListItem } from './list-items';
 
-const Wrapper = styled(Card)`
+const Wrapper = styled.View`
   flex-direction: column;
   padding: 16px;
-  margin-top: 16;
-  border-top-color: #f4f6fa;
   border-radius: 8;
+  border-color: #aeaeae;
+  border-width: 1;
+  margin: 16px 5px 1px 5px;
 `
 
 const CourseTitle = styled.Text.attrs({
@@ -84,7 +85,7 @@ export default function ListCardComponent({
           <DetailsItem>
             <CourseLessonListItem
               position={index % 2 ? 'left' : 'right'}
-              key={index}
+              key={randomString(4, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')}
               number={index + 1}
               {...item}
             />
@@ -98,5 +99,4 @@ export default function ListCardComponent({
 
 ListCardComponent.propTypes = {
   title: PropTypes.string,
-
 }

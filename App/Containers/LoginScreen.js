@@ -6,7 +6,6 @@ import AsyncStorage from '@react-native-community/async-storage';
 import styled from 'styled-components/native'
 import { SafeAreaViewWrapper, CustomStatusBar } from '../Components/ui'
 import { NavigationEvents } from 'react-navigation';
-import RNEexitApp from 'react-native-exit-app';
 import LoginActions from '../Redux/LoginRedux'
 import { SignInForm } from '../Components/forms'
 
@@ -60,7 +59,7 @@ class SignInScreen extends React.Component {
         style: 'cancel'
       }, {
         text: 'OK',
-        onPress: () => RNEexitApp.exitApp()
+        onPress: () => BackHandler.exitApp()
       },], {
         cancelable: false
       }

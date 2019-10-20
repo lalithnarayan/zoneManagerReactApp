@@ -9,7 +9,7 @@ import EventActions from '../Redux/EventRedux'
 import { SafeAreaViewWrapper, CustomStatusBar } from '../Components/ui'
 import { FeaturedCoursesListView } from '../Components/list-views'
 import { CourseCategoriesGridView } from '../Components/grid-views'
-import RNEexitApp from 'react-native-exit-app';
+// import RNEexitApp from 'react-native-exit-app';
 
 
 export const SAMPLE_COURSE_CATEGORIES = [
@@ -51,7 +51,7 @@ class HomeScreen extends React.Component {
         style: 'cancel'
       }, {
         text: 'OK',
-        onPress: () => RNEexitApp.exitApp()
+        onPress: () => BackHandler.exitApp()
       },], {
         cancelable: false
       }
