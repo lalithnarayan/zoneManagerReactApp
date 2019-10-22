@@ -106,6 +106,12 @@ class PhotoPicker extends Component {
     this.renderRow = this.renderRow.bind(this);
   }
 
+  clearAllPhoto = () => {
+    this.setState({
+      photos: [],
+    })
+  }
+
   addPhoto = () => {
     const { photos } = this.state;
     ImagePicker.showImagePicker(ImagePickerOptions, (response) => {

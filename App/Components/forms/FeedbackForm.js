@@ -35,6 +35,9 @@ export default function FeedbackCreateForm({ loading, onSubmit }) {
       onSubmit={(values, { resetForm }) => {
         onSubmit(values)
         resetForm();
+        if (this.photoPickerRef) {
+          this.photoPickerRef.clearAllPhoto();
+        }
       }}
       render={props => {
         return (
@@ -74,6 +77,9 @@ export default function FeedbackCreateForm({ loading, onSubmit }) {
               placeholder={'ದೂರು/ಸಲಹೆ/ಬೇಡಿಕೆ ವಿಧ ಆಯ್ಕೆ ಮಾಡಿ'}
             />
             <PhotoPicker
+              ref={ref => {
+                this.photoPickerRef = ref
+              }}
               label="ಫೋಟೋಗಳನ್ನು ಸೇರಿಸಿ"
               onChange={value => props.setFieldValue('photos', value)}
             />
