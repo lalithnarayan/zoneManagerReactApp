@@ -47,6 +47,8 @@ target 'sunilNaik' do
 
   pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
 
+  pod 'react-native-image-resizer', :path => '../node_modules/react-native-image-resizer'
+
   target 'sunilNaikTests' do
     inherit! :search_paths
     # Pods for testing
