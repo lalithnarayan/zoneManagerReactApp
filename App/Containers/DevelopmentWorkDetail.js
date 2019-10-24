@@ -30,14 +30,14 @@ class DevelopmentWorkDetail extends Component {
   renderDetailedView() {
     const { data, detailError } = this.props;
     const componentPayload = {
-      title: data.name,
+      title: data.place,
       images: data.images,
       subTitle: data.department,
       desc: data.desc,
       createdDate: data.created_at ? format(new Date(data.created_at), 'DD-MM-YYYY') : 'NA',
       lastUpdatedAt: data.updated_at ? format(new Date(data.updated_at), 'DD-MM-YYYY') : 'NA',
       metaData: [
-        { title: 'ಸ್ಥಳ', description: data.place },
+        // { title: 'ಸ್ಥಳ', description: data.place },
         { title: 'ಕೆಲಸದ ವಿಧ', description: data.type_of_work },
         { title: 'ಮಂಜೂರಾದ ಮೊತ್ತ', description: data.sanctioned_amount, hasIcon: true, iconName: 'cash-multiple', isCash: true, },
         { title: 'ಹಾಲಿ ಸ್ಥಿತಿ', description: data.status },

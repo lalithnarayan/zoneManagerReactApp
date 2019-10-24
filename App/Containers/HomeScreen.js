@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, Content } from 'native-base';
-import { BackHandler, Alert, Platform } from 'react-native';
+import { BackHandler, Alert, Platform, Linking } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import { connect } from 'react-redux'
 import { NavigationEvents } from 'react-navigation';
@@ -17,9 +17,10 @@ export const SAMPLE_COURSE_CATEGORIES = [
   { icon: 'ios-people', type: 'Ionicons', title: 'ಫಲಾನುಭವಿಗಳು', route: 'BeneficiaryListingScreen' },
   { icon: 'event-note', type: 'MaterialIcons', title: 'ದಿನಂಪ್ರತಿ ಕಾರ್ಯಕ್ರಮಗಳು', route: 'EventsListScreen' },
   { icon: 'feedback', type: 'MaterialIcons', title: 'ದೂರು/ಬೇಡಿಕೆ/ಸಲಹೆ', route: 'FeedbackList' },
-  { icon: 'ios-timer', type: 'Ionicons', title: 'ಸಮಯಾವಕಾಶ ಕೋರಿಕೆ', route: 'AppointmentListScreen'},
-  { icon: 'facebook-square', type: 'FontAwesome', title: 'ನ್ಯೂಸ್ ಫೀಡ್', route: 'FacebookScreen'},
-  { icon: 'twitter-square', type: 'FontAwesome', title: 'ಟ್ವಿಟರ್', route: 'TwitterScreen'},
+  { icon: 'ios-timer', type: 'Ionicons', title: 'ಸಮಯಾವಕಾಶ ಕೋರಿಕೆ', route: 'AppointmentListScreen' },
+  { icon: 'facebook-square', type: 'FontAwesome', title: 'ನ್ಯೂಸ್ ಫೀಡ್', route: 'FacebookScreen' },
+  { icon: 'twitter-square', type: 'FontAwesome', title: 'ಟ್ವಿಟರ್', route: 'TwitterScreen' },
+  { icon: 'youtube-square', type: 'FontAwesome', title: 'ಯೂಟ್ಯೂಬ್', route: 'YoutubeScreen' },
 ]
 const Heading = styled.Text`
   font-size: 15;
@@ -85,13 +86,20 @@ class HomeScreen extends React.Component {
             <FeaturedCoursesListView
               loading={loading}
               items={data}
-              onItemPress={item =>  navigation.navigate("EventDetailScreen", { selectedData: item })}
+              onItemPress={item => navigation.navigate("EventDetailScreen", { selectedData: item })}
             />
             <Heading>ವಿಭಾಗಗಳು</Heading>
             <CourseCategoriesGridView
               items={SAMPLE_COURSE_CATEGORIES}
-              onItemPress={item =>
-                navigation.navigate(item.route)
+              onItemPress={item => {
+                if (item.route !== 'YoutubeScreen') {
+                  navigation.navigate(item.route);
+                  return; 
+                }
+                else {
+                  Linking.openURL( 'https://www.youtube.com/channel/UCJpeMzzQfbalCg3VKMqCKig' )
+                }
+              }
               }
             />
           </Content>

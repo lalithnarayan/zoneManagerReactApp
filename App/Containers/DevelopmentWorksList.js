@@ -77,18 +77,18 @@ class BeneficiaryList extends Component {
   formatData(data) {
     return (
       {
-        title: data.name,
+        title: data.place,
         image: data.image,
         subTitle: data.desc,
         subTitleLabel: 'ವಿವರಗಳು',
         metaData: [
-          { title: 'ಇಲಾಖೆ', description: data.department },
-          { title: 'ಸ್ಥಳ', description: data.place },
-          { title:'ಕೆಲಸದ ವಿಧ', description: data.type_of_work},
+          // { title: 'ಸ್ಥಳ', description: data.place },
+          // { title:'ಕೆಲಸದ ವಿಧ', description: data.type_of_work},
           { title: 'ಮಂಜೂರಾದ ಮೊತ್ತ', description: data.sanctioned_amount, hasIcon: true, iconName: 'cash-multiple', isCash: true, },
+          { title: 'ಇಲಾಖೆ', description: data.department },
           { title: 'ಹಾಲಿ ಸ್ಥಿತಿ', description: data.status },
-          { title: 'ಅಡಿಗಲ್ಲು ದಿನಾಂಕ', description: data.foundation_date, iconName: 'calendar', hasIcon: true },
-          { title: 'ಉದ್ಘಾಟನೆ ದಿನಾಂಕ', description: data.inaugration_date, iconName: 'calendar', hasIcon: true },
+          // { title: 'ಅಡಿಗಲ್ಲು ದಿನಾಂಕ', description: data.foundation_date, iconName: 'calendar', hasIcon: true },
+          // { title: 'ಉದ್ಘಾಟನೆ ದಿನಾಂಕ', description: data.inaugration_date, iconName: 'calendar', hasIcon: true },
         ]
       }
     )

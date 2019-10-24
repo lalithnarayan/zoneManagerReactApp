@@ -49,6 +49,7 @@ import DevelopmentWorkDetail from '../Containers/DevelopmentWorkDetail'
 
 import FacebookScreen from '../Containers/FacebookPage';
 import TwitterScreen from '../Containers/TwitterPage';
+import YoutubeScreen from '../Containers/Youtubescreen';
 
 import HomeScreen from '../Containers/HomeScreen';
 
@@ -213,6 +214,9 @@ const DashboardStackNavigator = createStackNavigator(
     TwitterScreen: {
       screen: TwitterScreen,
     },
+    YoutubeScreen:{
+      screen: YoutubeScreen,
+    }
   },
   {
     navigationOptions: ({ navigation }) => {
