@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Card } from 'native-base'
 import styled from 'styled-components/native'
-// import { Rating } from 'react-native-elements'
 import { ImageProgressComponent } from '../ui'
 import { Top, DetailsWrapper, Title, SubHeading } from './CourseListItem'
 
@@ -49,16 +48,7 @@ export default function ReviewListItem({
 
         <SubHeading>{date}</SubHeading>
       </Top>
-
       <ReviewWrapper>
-        {/* <RatingStars
-          readonly
-          type="custom"
-          fractions={1}
-          startingValue={rating}
-          ratingColor="#f6941c"
-          imageSize={25}
-        /> */}
         <SubHeading>{review}</SubHeading>
       </ReviewWrapper>
     </Wrapper>

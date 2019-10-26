@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Card, Icon } from 'native-base'
-// import { Ionicons } from '@expo/vector-icons'
+import { Icon } from 'native-base'
 import styled from 'styled-components/native'
 import Separator from './Separator'
 
@@ -11,7 +10,7 @@ const Wrapper = styled.TouchableOpacity`
   padding: 0px 16px;
 `
 
-const IconWrapper = styled(Card)`
+const IconWrapper = styled.View`
   width: 30;
   height: 30;
   justify-content: center;
