@@ -9,7 +9,6 @@ import EventActions from '../Redux/EventRedux'
 import { SafeAreaViewWrapper, CustomStatusBar } from '../Components/ui'
 import { FeaturedCoursesListView } from '../Components/list-views'
 import { CourseCategoriesGridView } from '../Components/grid-views'
-// import RNEexitApp from 'react-native-exit-app';
 
 
 export const SAMPLE_COURSE_CATEGORIES = [
@@ -18,9 +17,9 @@ export const SAMPLE_COURSE_CATEGORIES = [
   { icon: 'event-note', type: 'MaterialIcons', title: 'ದಿನಂಪ್ರತಿ ಕಾರ್ಯಕ್ರಮಗಳು', route: 'EventsListScreen' },
   { icon: 'feedback', type: 'MaterialIcons', title: 'ದೂರು/ಬೇಡಿಕೆ/ಸಲಹೆ', route: 'FeedbackList' },
   { icon: 'ios-timer', type: 'Ionicons', title: 'ಸಮಯಾವಕಾಶ ಕೋರಿಕೆ', route: 'AppointmentListScreen' },
-  { icon: 'facebook-square', type: 'FontAwesome', title: 'ನ್ಯೂಸ್ ಫೀಡ್', route: 'FacebookScreen' },
-  { icon: 'twitter-square', type: 'FontAwesome', title: 'ಟ್ವಿಟರ್', route: 'TwitterScreen' },
-  { icon: 'youtube-square', type: 'FontAwesome', title: 'ಯೂಟ್ಯೂಬ್', route: 'YoutubeScreen' },
+  { icon: 'facebook-square', type: 'FontAwesome', title: 'ನ್ಯೂಸ್ ಫೀಡ್', link: 'https://www.facebook.com/Sunilnaik581354/' },
+  { icon: 'twitter-square', type: 'FontAwesome', title: 'ಟ್ವಿಟರ್', link: 'https://twitter.com/sunilnaik_bjp?lang=en' },
+  { icon: 'youtube-square', type: 'FontAwesome', title: 'ಯೂಟ್ಯೂಬ್', link: 'https://www.youtube.com/channel/UCJpeMzzQfbalCg3VKMqCKig' },
 ]
 const Heading = styled.Text`
   font-size: 15;
@@ -92,15 +91,12 @@ class HomeScreen extends React.Component {
             <CourseCategoriesGridView
               items={SAMPLE_COURSE_CATEGORIES}
               onItemPress={item => {
-                if (item.route !== 'YoutubeScreen') {
+                if (item.route) {
                   navigation.navigate(item.route);
-                  return; 
+                } else {
+                  Linking.openURL(item.link)
                 }
-                else {
-                  Linking.openURL( 'https://www.youtube.com/channel/UCJpeMzzQfbalCg3VKMqCKig' )
-                }
-              }
-              }
+              }}
             />
           </Content>
         </Container>

@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import AsyncStorage from '@react-native-community/async-storage';
 import { NavigationEvents } from "react-navigation";
 import { CustomActivityIndicator } from '../Components/ui';
-import { format } from 'date-fns';
-import { Container, Header, Content, Icon, Text, View } from 'native-base';
+import { Container } from 'native-base';
 import ErrorPage from '../Components/NetworkErrorScreen';
 import DetailView from '../Components/DevDetail';
 import BeneficiaryActions from '../Redux/BeneficiaryRedux';
@@ -32,14 +30,12 @@ class BenefeciaryDetailView extends Component {
   renderContent() {
     const { data, detailError } = this.props;
     const componentPayload = {
-      title: data.beneficiary_name,
+      title: data.place,
       images: data.images,
       subTitle: data.scheme_type,
       desc: data.granted_relief,
-      createdDate: data.created_at ? format(new Date(data.created_at), 'DD-MM-YYYY') : 'NA',
-      lastUpdatedAt: data.updated_at ? format(new Date(data.updated_at), 'DD-MM-YYYY') : 'NA',
       metaData: [
-        {title: 'ಸ್ಥಳ', description: data.place},
+        {title: 'ಹೆಸರು', description: data.beneficiary_name},
         {title: 'ಅರ್ಜಿ ದಿನಾಂಕ', description: data.application_date},
         {title: 'ಹಾಲಿ ಸ್ಥಿತಿ', description: data.status},
         {title: 'ಷರಾ', description: data.remarks},

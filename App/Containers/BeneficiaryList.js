@@ -5,7 +5,6 @@ import { TouchableOpacity, FlatList } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import { Container, Content } from 'native-base'
 import BeneficiaryActions from '../Redux/BeneficiaryRedux'
-import { format } from 'date-fns';
 import { CustomActivityIndicator, LinkButton, CoursePriceTag } from '../Components/ui';
 import { DevWorksFIlterForm } from '../Components/forms'
 import FooterComponent from '../Components/ListFooter';
@@ -99,15 +98,13 @@ class BeneficiaryList extends Component {
   formatData(data) {
     return (
       {
-        title: data.beneficiary_name,
+        title: data.place,
         image: data.image,
         subTitleLabel: 'ಯೋಜನೆ ಪ್ರಕಾರ',
         subTitle: data.scheme_type,
         desc: data.granted_relief,
-        // createdDate: data.created_at ? format(new Date(data.created_at), 'DD-MM-YYYY') : 'NA',
-        // lastUpdatedAt: data.updated_at ? format(new Date(data.updated_at), 'DD-MM-YYYY') : 'NA',
         metaData: [
-          { title: 'ಸ್ಥಳ', description: data.place },
+          { title: 'ಹೆಸರು', description: data.beneficiary_name },
           { title: 'ಅರ್ಜಿ ದಿನಾಂಕ', description: data.application_date },
           { title: 'ಹಾಲಿ ಸ್ಥಿತಿ', description: data.status },
           { title: 'ಷರಾ', description: data.remarks },
