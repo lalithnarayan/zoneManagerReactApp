@@ -9,6 +9,7 @@ import EventActions from '../Redux/EventRedux'
 import { SafeAreaViewWrapper, CustomStatusBar } from '../Components/ui'
 import { FeaturedCoursesListView } from '../Components/list-views'
 import { CourseCategoriesGridView } from '../Components/grid-views'
+import PushNotification from 'react-native-push-notification';
 
 
 export const SAMPLE_COURSE_CATEGORIES = [
