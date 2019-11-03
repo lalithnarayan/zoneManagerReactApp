@@ -50,6 +50,10 @@ target 'sunilNaik' do
 
   pod 'react-native-onesignal', :path => '../node_modules/react-native-onesignal'
 
+  target 'OneSignalNotificationServiceExtension' do
+    pod 'OneSignal', '>= 2.9.3', '< 3.0'
+  end
+
   target 'sunilNaikTests' do
     inherit! :search_paths
     # Pods for testing
