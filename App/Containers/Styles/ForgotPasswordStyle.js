@@ -4,15 +4,6 @@ import { Colors, Metrics, ApplicationStyles } from '../../Themes/'
 
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
-    /** Content **/
-    bgLayout: {    
-    },
-    bgImg: {
-      position: 'absolute',
-      width: '100%',
-      height: 220
-    },
-  
     /** Header **/
     hTop: {
       flexDirection: 'column',
@@ -22,7 +13,8 @@ export default StyleSheet.create({
     },
     hImg: {
       fontSize: 86,
-      color: '#FFD328'
+      color: '#FFD328',
+      marginHorizontal: 10,
     },
     hRow: {
       flex: 1,
@@ -36,14 +28,10 @@ export default StyleSheet.create({
     },
     hTopText: {
       fontSize: 20,
-      // 
-      color: '#FFF',
       marginBottom: 10
     },
     hTopDesc: {
       fontSize: 12,
-      // 
-      color: 'rgba(255,255,255,0.5)',
       lineHeight: 18,
       marginBottom: 10,
       textAlign: 'center'
@@ -61,27 +49,12 @@ export default StyleSheet.create({
     },
     infoBox: {
       backgroundColor: '#FFF',
-      elevation: 10,
-      shadowOffset: {
-        width: 10,
-        height: 10
-      },
-      shadowColor: '#999',
-      shadowOpacity: 0.1,
-      shadowRadius: 3,
       marginHorizontal: 20,
       borderRadius: 3,
       padding: 15,
       marginBottom: 20
     },
-    fSelect: {
-      flex: 1,
-      flexDirection: 'row',
-      alignItems: 'center',
-      paddingHorizontal: 15,
-      borderBottomWidth: 1,
-      borderColor: 'rgba(36,42,56,0.05)'
-    },
+
     fRow: {
       position:'relative',
       flex: 1,
@@ -121,15 +94,7 @@ export default StyleSheet.create({
     position: 'absolute',
     bottom: -15,
   },
-    fPicker: {
-      flex: 1
-    },
-    fPickerItem: {
-      flex: 1,
-      width: '100%',
-      paddingTop: 0,
-      paddingBottom: 0
-    },
+
     fIcon: {
       color: 'rgba(36,42,56,0.4)',
       fontSize: 24,
@@ -141,27 +106,7 @@ export default StyleSheet.create({
       // 
       fontSize: 12
     },
-  
-    fBtn: {
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      backgroundColor: '#FF8901',
-      paddingVertical: 15,
-      paddingHorizontal: 15,
-      borderRadius: 3,
-      marginTop: 15
-    },
-    fBtnText: {
-      // 
-      fontSize: 14,
-      color: '#FFF'
-    },
-    fBtnIcon: {
-      // 
-      fontSize: 16,
-      color: '#FFF'
-    },
+
     forgotPassword: {
       // 
       fontSize: 12,
@@ -188,65 +133,6 @@ export default StyleSheet.create({
       // 
       fontSize: 12,
       color: 'rgba(36,42,56,0.99)'
-    },
-  
-    connect: {
-      marginHorizontal: 20,
-      marginVertical: 20,
-      alignItems: 'center',
-      justifyContent: 'center'
-    },
-    connectOr: {
-      flex: 1,
-      width: '100%'
-    },
-    connectText: {
-      // 
-      fontSize: 18,
-      marginBottom: 15,
-      color: 'rgba(36,42,56,0.99)',
-      alignSelf: 'center'
-    },
-    connectLine: {
-      flex: 1,
-      position: 'absolute',
-      borderBottomWidth: 1,
-      borderColor: '#FF0000'
-    },
-    connectHeader: {
-      // 
-      fontSize: 12,
-      color: 'rgba(36,42,56,0.99)',
-      alignSelf: 'center',
-      marginBottom: 15
-    },
-    smn: {
-      flexDirection: 'row'
-    },
-    smnBtn: {
-      flexDirection: 'row',
-      marginHorizontal: 10,
-      alignItems: 'center',
-      justifyContent: 'center',
-      paddingHorizontal: 20,
-      paddingVertical: 10,
-      borderRadius: 3
-    },
-    smnIcon: {
-      fontSize: 18,
-      color: '#FFF',
-      marginRight: 5
-    },
-    smnText: {
-      // 
-      fontSize: 14,
-      color: '#FFF'
-    },
-    facebook: {
-      backgroundColor: '#395498'
-    },
-    googlePlus: {
-      backgroundColor: '#D64937'
     },
   errorText: {  
     fontSize: 12,

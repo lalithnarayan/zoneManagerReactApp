@@ -3,7 +3,6 @@ import { StatusBar, TouchableOpacity, RefreshControl, StyleSheet, Image, ImageBa
 import AsyncStorage from '@react-native-community/async-storage';
 import { Container, Header, Content, Button, Icon, Text, Card, Left, Right, Body, Input, Footer, View, FooterTab, Badge, CheckBox } from 'native-base'
 import { connect } from 'react-redux';
-import LoadingOverlay from '../Components/LoadingOverlay';
 import ErrorPage from '../Components/NetworkErrorScreen';
 import { Images } from '../Themes/';
 import ModuleActions from '../Redux/ModuleRedux'
@@ -177,13 +176,7 @@ class ModuleListView extends Component {
           </View>
         </Header>
         {this.renderContent()}
-        <LoadingOverlay
-          visible={fetching}
-          color="white"
-          indicatorSize="large"
-          messageFontSize={24}
-          message="Loading..."
-        />
+
         <Footer>
           <View style={Styles.nav}>
             <View style={Styles.navLeft}>

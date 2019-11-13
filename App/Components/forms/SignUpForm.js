@@ -24,19 +24,19 @@ const phoneRegExp = /^[6-9]\d{9}$/;
 const validationSchema = yup.object().shape({
   first_name: yup.string().required('ಮೊದಲ ಹೆಸರು ಅಗತ್ಯವಿದೆ'),
   last_name: yup.string().required('ಕೊನೆಯ ಹೆಸರು ಅಗತ್ಯವಿದೆ'),
-  dob: yup
-    .date()
-    .required('ಹುಟ್ಟಿದ ದಿನಾಂಕದ ಅಗತ್ಯವಿದೆ')
-    .max(new Date(), `ಹುಟ್ಟಿದ ದಿನಾಂಕ ಅಮಾನ್ಯವಾಗಿದೆ`),
-  gender: yup
-    .string()
-    .required('ಲಿಂಗ  ಅಗತ್ಯವಿದೆ'),
-  position_id: yup
-    .string()
-    .required('ಉದ್ಯೋಗ/ಹುದ್ದೆ ಅಗತ್ಯವಿದೆ'),
-  place_id: yup
-    .string()
-    .required('ಸ್ಥಳ ಅಗತ್ಯವಿದೆ'),
+  // dob: yup
+  //   .date()
+  //   .required('ಹುಟ್ಟಿದ ದಿನಾಂಕದ ಅಗತ್ಯವಿದೆ')
+  //   .max(new Date(), `ಹುಟ್ಟಿದ ದಿನಾಂಕ ಅಮಾನ್ಯವಾಗಿದೆ`),
+  // gender: yup
+  //   .string()
+  //   .required('ಲಿಂಗ  ಅಗತ್ಯವಿದೆ'),
+  // position_id: yup
+  //   .string()
+  //   .required('ಉದ್ಯೋಗ/ಹುದ್ದೆ ಅಗತ್ಯವಿದೆ'),
+  // place_id: yup
+  //   .string()
+  //   .required('ಸ್ಥಳ ಅಗತ್ಯವಿದೆ'),
   phone: yup
     .string().matches(phoneRegExp, 'ಮೊಬೈಲ್ ಸಂಖ್ಯೆ ಅಮಾನ್ಯವಾಗಿದೆ')
     .required('ಮೊಬೈಲ್ ಸಂಖ್ಯೆ ಅಗತ್ಯವಿದೆ'),
@@ -84,46 +84,6 @@ export default function SignUpForm({ loading, onSubmit, positions }) {
             value={props.values.phone}
             onChangeText={text => props.setFieldValue('phone', text)}
             error={props.touched.phone && props.errors.phone}
-          />
-          <FormField
-            label="ಇಮೇಲ್"
-            keyboardType="email-address"
-            value={props.values.email}
-            onChangeText={text => props.setFieldValue('email', text)}
-            error={props.touched.email && props.errors.email}
-          />
-
-          <PlacePicker
-            label="ಸ್ಥಳವನ್ನು ಆಯ್ಕೆ ಮಾಡಿ"
-            value={props.values.place_id}
-            onChange={({ id }) => props.setFieldValue('place_id', id)}
-            error={props.touched.place_id && props.errors.place_id}
-          />
-
-          <SelectField
-            label="ಲಿಂಗ"
-            value={props.values.gender}
-            onChange={value => props.setFieldValue('gender', value)}
-            error={props.touched.gender && props.errors.gender}
-            placeholder={'ಲಿಂಗವನ್ನು ಆಯ್ಕೆ ಮಾಡಿ'}
-            options={[{ name: 'ಗಂಡು', value: 'Male' }, { name: 'ಹೆಣ್ಣು ', value: 'Female' }, { name: 'ಇತರೆ', value: 'Others' }]}
-          />
-
-          <SelectField
-            label="ಉದ್ಯೋಗ/ಹುದ್ದೆ ಆಯ್ಕೆ ಮಾಡಿ"
-            value={props.values.position_id}
-            onChange={value => props.setFieldValue('position_id', value)}
-            error={props.touched.position_id && props.errors.position_id}
-            placeholder={'ಉದ್ಯೋಗ/ಹುದ್ದೆ ಆಯ್ಕೆ ಮಾಡಿ'}
-            options={positions}
-          />
-
-          <DatePicker
-            label="ಹುಟ್ಟಿದ ದಿನಾಂಕ"
-            defaultDate={props.values.dob}
-            onChange={value => props.setFieldValue('dob', value)}
-            error={props.touched.dob && props.errors.dob}
-            placeholder={'ಹುಟ್ಟಿದ ದಿನಾಂಕ ಆಯ್ಕೆ ಮಾಡಿ'}
           />
           <FormField
             label="ಪಾಸ್ವರ್ಡ್"

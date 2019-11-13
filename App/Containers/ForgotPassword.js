@@ -1,16 +1,24 @@
 import React, { Component } from 'react'
-import { Keyboard, StatusBar, TouchableOpacity, TextInput, Image } from 'react-native'
-import { Container, Header, Content, Button, Icon, Text,  View } from 'native-base'
+import { Keyboard, TouchableOpacity, TextInput, Image } from 'react-native'
+import { Container, Content, Icon, Text, View } from 'native-base'
 import { connect } from 'react-redux'
-import { Images } from '../Themes/'
 import LoginActions from '../Redux/LoginRedux'
 import { ToastActionsCreators } from 'react-native-redux-toast';
-import LoadingOverlay from '../Components/LoadingOverlay';
+import { RegularButton, CustomActivityIndicator, LinkButton } from '../Components/ui';
 
 // Styles
 import Styles from './Styles/ForgotPasswordStyle'
 
+export const onboardingHeaderStyle = {
+  backgroundColor: '#f5f5f2',
+  borderBottomColor: 'transparent'
+}
+
 class ForgotPassword extends Component {
+  static navigationOptions = {
+    title: 'ಪಾಸ್ವರ್ಡ್ ಮರೆತಿರಾ',
+    headerStyle: onboardingHeaderStyle,
+  }
   constructor(props) {
     super(props)
     this.state = {
@@ -72,14 +80,11 @@ class ForgotPassword extends Component {
   };
 
   render() {
-    const { navigate } = this.props.navigation;
     const { otpStatus, fetching, resetPasswordError } = this.props;
     const { errorObj, showPassword } = this.state;
     return (
       <Container>
         <Content contentContainerStyle={Styles.layoutDefault}>
-
-          <Image source={Images.background} style={Styles.bgImg} />
           <View style={Styles.bgLayout}>
             <View style={Styles.hTop}>
               <Icon name='lock' type="MaterialCommunityIcons" style={Styles.hImg} />
@@ -88,7 +93,7 @@ class ForgotPassword extends Component {
             </View>
             <View style={Styles.regForm}>
               <View style={Styles.infoBox}>
-                <View style={(errorObj && errorObj.phone) ? Styles.fRowError : Styles.fRow }>
+                <View style={(errorObj && errorObj.phone) ? Styles.fRowError : Styles.fRow}>
                   <Icon name='cellphone-android' type="MaterialCommunityIcons" style={Styles.fIcon} />
                   <TextInput
                     style={Styles.fInput}
@@ -102,7 +107,7 @@ class ForgotPassword extends Component {
                 </View>
                 {
                   otpStatus === 1 ?
-                    <View style={(errorObj && errorObj.phone) ? Styles.fRowError : Styles.fRow }>
+                    <View style={(errorObj && errorObj.phone) ? Styles.fRowError : Styles.fRow}>
                       <Icon
                         name='message-circle'
                         type="Feather"
@@ -121,7 +126,7 @@ class ForgotPassword extends Component {
                 }
                 {
                   otpStatus === 1 ?
-                    <View style={resetPasswordError ? Styles.fRowError : Styles.fRow }>
+                    <View style={resetPasswordError ? Styles.fRowError : Styles.fRow}>
                       <Icon name='textbox-password' type="MaterialCommunityIcons" style={Styles.fIcon} />
                       <TextInput
                         style={Styles.fInput}
@@ -132,12 +137,12 @@ class ForgotPassword extends Component {
                         onChangeText={(text) => this.onFormChange(text, 'password')}
                         disabled={fetching}
                       />
-                                        <Icon
-                    name={showPassword ? 'eye-off' :'eye'}
-                    type="MaterialCommunityIcons"
-                    style={Styles.fIcon}
-                    onPress={this.togglePasswordShow}
-                  />
+                      <Icon
+                        name={showPassword ? 'eye-off' : 'eye'}
+                        type="MaterialCommunityIcons"
+                        style={Styles.fIcon}
+                        onPress={this.togglePasswordShow}
+                      />
                     </View> : null
                 }
                 {
@@ -145,47 +150,25 @@ class ForgotPassword extends Component {
                 }
                 {
                   otpStatus ?
-                  <View style={Styles.account}>
-                    <TouchableOpacity style={Styles.accountBtn} onPress={this.handleNextClick}>
-                      <Text style={Styles.accountBtnText}>ಒಟಿಪಿಯನ್ನು ಮರುಹೊಂದಿಸಿ</Text>
-                    </TouchableOpacity>
-                  </View> : null
+                    <LinkButton
+                      text="ಒಟಿಪಿಯನ್ನು ಮರುಹೊಂದಿಸಿ"
+                      onPress={this.handleNextClick}
+                    /> : null
                 }
                 {
                   !otpStatus ?
-                    <TouchableOpacity
-                      style={Styles.fBtn}
-                      onPress={this.handleNextClick}
-                      disabled={fetching}
-                    >
-                    <Text style={Styles.fBtnText}>ಒಟಿಪಿ ಪಡೆಯಿರಿ</Text>
-                    <Icon name='arrow-right' type="FontAwesome" style={Styles.fBtnIcon} />
-                  </TouchableOpacity>
-                  : null
+                    <RegularButton text="ಒಟಿಪಿ ಪಡೆಯಿರಿ" onPress={this.handleNextClick} /> : null
                 }
                 {
                   otpStatus === 1 ?
-                    <TouchableOpacity
-                      style={Styles.fBtn}
-                      onPress={this.onFormSubmit}
-                      disabled={fetching}
-                    >
-                    <Text style={Styles.fBtnText}>ಪಾಸ್ವರ್ಡ್ ಮರುಹೊಂದಿಸಿ</Text>
-                    <Icon name='arrow-right' type="FontAwesome" style={Styles.fBtnIcon} />
-                  </TouchableOpacity>
-                  : null
+                    <RegularButton text="ಪಾಸ್ವರ್ಡ್ ಮರುಹೊಂದಿಸಿ" onPress={this.onFormSubmit} /> : null
                 }
                 {
                   otpStatus === 2 ?
-                    <TouchableOpacity
-                      style={Styles.fBtn}
+                    <LinkButton
+                      text="ಒಟಿಪಿಯನ್ನು ಮರುಹೊಂದಿಸಿ"
                       onPress={this.handleNextClick}
-                      disabled={fetching}
-                    >
-                    <Text style={Styles.fBtnText}>ಒಟಿಪಿಯನ್ನು ಮರುಹೊಂದಿಸಿ</Text>
-                    <Icon name='arrow-right' type="FontAwesome" style={Styles.fBtnIcon} />
-                  </TouchableOpacity>
-                  : null
+                    /> : null
                 }
               </View>
             </View>
@@ -198,13 +181,9 @@ class ForgotPassword extends Component {
             </View>
           </View>
         </Content>
-        <LoadingOverlay
-          visible={fetching}
-          color="white"
-          indicatorSize="large"
-          messageFontSize={24}
-          message="Loading..."
-        />
+        {
+          fetching ? <CustomActivityIndicator /> : null
+        }
       </Container>
 
     )

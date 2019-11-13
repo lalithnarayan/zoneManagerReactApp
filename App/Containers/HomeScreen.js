@@ -20,6 +20,7 @@ export const SAMPLE_COURSE_CATEGORIES = [
   { icon: 'facebook-square', type: 'FontAwesome', title: 'ನ್ಯೂಸ್ ಫೀಡ್', link: 'https://www.facebook.com/Sunilnaik581354/' },
   { icon: 'twitter-square', type: 'FontAwesome', title: 'ಟ್ವಿಟರ್', link: 'https://twitter.com/sunilnaik_bjp?lang=en' },
   { icon: 'youtube-square', type: 'FontAwesome', title: 'ಯೂಟ್ಯೂಬ್', link: 'https://www.youtube.com/channel/UCJpeMzzQfbalCg3VKMqCKig' },
+  { icon: 'thumb-tack', type: 'FontAwesome', title: 'ಉಪಯುಕ್ತ ಲಿಂಕ್‌ಗಳು', route: 'UsefulLinksScreen' },
 ]
 const Heading = styled.Text`
   font-size: 15;

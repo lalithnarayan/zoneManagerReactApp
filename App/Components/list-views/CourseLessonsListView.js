@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components/native'
-import { CourseLessonListItem } from '../list-items'
+import { UsefulLinkItem } from '../list-items'
 
 const Wrapper = styled.View`
   border-color: transparent;
@@ -13,7 +13,7 @@ export default function CourseLessonsListView({ items, onItemPress }) {
   return (
     <Wrapper>
       {items.map((item, index) => (
-        <CourseLessonListItem
+        <UsefulLinkItem
           key={index}
           number={index + 1}
           {...item}

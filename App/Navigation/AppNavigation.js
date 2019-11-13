@@ -48,6 +48,7 @@ import DevelopmentWorksList from '../Containers/DevelopmentWorksList'
 import DevelopmentWorkDetail from '../Containers/DevelopmentWorkDetail'
 
 import HomeScreen from '../Containers/HomeScreen';
+import UsefulLinksScreen from '../Containers/UsefulLinksScreen';
 
 
 import { YellowBox } from 'react-native';
@@ -203,6 +204,9 @@ const DashboardStackNavigator = createStackNavigator(
     },
     EditProfile: {
       screen: ProfileEdit,
+    },
+    UsefulLinksScreen: {
+      screen: UsefulLinksScreen,
     },
   },
   {

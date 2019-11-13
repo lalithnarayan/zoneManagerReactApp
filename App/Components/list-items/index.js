@@ -4,6 +4,7 @@ import CourseListItem from './CourseListItem'
 import FeaturedCourseListItem from './FeaturedCourseListItem'
 import RecommendedListItem from './RecommendedListItem'
 import ReviewListItem from './ReviewListItem'
+import UsefulLinkItem from './usefulinksitem';
 
 export {
   AvatarListItem,
@@ -11,5 +12,6 @@ export {
   CourseListItem,
   FeaturedCourseListItem,
   RecommendedListItem,
-  ReviewListItem
+  ReviewListItem,
+  UsefulLinkItem
 }
