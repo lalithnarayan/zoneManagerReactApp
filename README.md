@@ -104,6 +104,34 @@ cd android
 
 #### Release build
 
+##### Caveat: Release build error : Duplicate Resources
+
+Add the following to your node-modules/react-native/react.gradle
+```
+            doLast {
+                def moveFunc = { resSuffix ->
+                    File originalDir = file("$buildDir/generated/res/react/release/drawable-${resSuffix}");
+                    if (originalDir.exists()) {
+                        File destDir = file("$buildDir/../src/main/res/drawable-${resSuffix}");
+                        ant.move(file: originalDir, tofile: destDir);
+                    }
+                }
+                moveFunc.curry("ldpi").call()
+                moveFunc.curry("mdpi").call()
+                moveFunc.curry("hdpi").call()
+                moveFunc.curry("xhdpi").call()
+                moveFunc.curry("xxhdpi").call()
+                moveFunc.curry("xxxhdpi").call()
+            }
+```
+
+Before release, remove all resources that are known to cause issues:
+```
+rm -rf app/src/main/res/drawable-*
+
+rm -rf app/src/main/res/raw
+```
+
 1. Ensure version upgrade
 ```
 react-native-version --never-amend
@@ -113,7 +141,8 @@ This will update app version in IOS and Android Manifests
 2. Build app using gradle
 ```
 cd android
-./gradlew assembleRelease
+./gradlew clean
+./gradlew bundleRelease
 ```
 
 3. Build using android runner if build fails
