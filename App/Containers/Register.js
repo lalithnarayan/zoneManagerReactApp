@@ -77,12 +77,7 @@ class Register extends Component {
         const lastName = tempFormObj['last_name'];
         data.append('user[name]', `${firstName} ${lastName}`);
       }
-      if (property === 'dob') {
-        const date = ("0" + tempFormObj[property].getDate()).slice(-2);
-        const month = ("0" + (tempFormObj[property].getMonth() + 1)).slice(-2);
-        const year = tempFormObj[property].getFullYear();
-        data.append(`user[${property}]`, `${year}-${month}-${date}`);
-      }  else if (property !== 'last_name' && property !== 'first_name') {
+      else if (property !== 'last_name' && property !== 'first_name') {
         data.append(`user[${property}]`, tempFormObj[property]);
       }
     }

@@ -10,9 +10,6 @@ const initialValues = {
   first_name: '',
   last_name: '',
   gender: '',
-  dob: '',
-  position_id: '',
-  place_id: '',
   phone: '',
   password: '',
   password_confirmation: '',
@@ -24,25 +21,15 @@ const phoneRegExp = /^[6-9]\d{9}$/;
 const validationSchema = yup.object().shape({
   first_name: yup.string().required('ಮೊದಲ ಹೆಸರು ಅಗತ್ಯವಿದೆ'),
   last_name: yup.string().required('ಕೊನೆಯ ಹೆಸರು ಅಗತ್ಯವಿದೆ'),
-  // dob: yup
-  //   .date()
-  //   .required('ಹುಟ್ಟಿದ ದಿನಾಂಕದ ಅಗತ್ಯವಿದೆ')
-  //   .max(new Date(), `ಹುಟ್ಟಿದ ದಿನಾಂಕ ಅಮಾನ್ಯವಾಗಿದೆ`),
-  // gender: yup
-  //   .string()
-  //   .required('ಲಿಂಗ  ಅಗತ್ಯವಿದೆ'),
-  // position_id: yup
-  //   .string()
-  //   .required('ಉದ್ಯೋಗ/ಹುದ್ದೆ ಅಗತ್ಯವಿದೆ'),
-  // place_id: yup
-  //   .string()
-  //   .required('ಸ್ಥಳ ಅಗತ್ಯವಿದೆ'),
   phone: yup
     .string().matches(phoneRegExp, 'ಮೊಬೈಲ್ ಸಂಖ್ಯೆ ಅಮಾನ್ಯವಾಗಿದೆ')
     .required('ಮೊಬೈಲ್ ಸಂಖ್ಯೆ ಅಗತ್ಯವಿದೆ'),
+  gender: yup
+    .string()
+    .required('ಲಿಂಗ  ಅಗತ್ಯವಿದೆ'),  
   password: yup.
-    string()
-    .required('ಪಾಸ್ವರ್ಡ್ ಅಗತ್ಯವಿದೆ'),
+  string()
+  .required('ಪಾಸ್ವರ್ಡ್ ಅಗತ್ಯವಿದೆ'),
   password_confirmation: yup
     .string()
     .required('ದೃಢೀಕರಣ ಪಾಸ್ವರ್ಡ್ ಅಗತ್ಯವಿದೆ')
@@ -52,7 +39,7 @@ const validationSchema = yup.object().shape({
 
 export default function SignUpForm({ loading, onSubmit, positions }) {
   return (
-    <Formik
+      <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
       onSubmit={values => onSubmit(values)}
@@ -60,7 +47,6 @@ export default function SignUpForm({ loading, onSubmit, positions }) {
         <FormContainer
           loading={loading}
           submitButtonText='ಒಟಿಪಿ ಪಡೆಯಿರಿ'
-          // actionText="By pressing 'Join Us', you agree to our terms & conditions"
           showLinkButton
           onSubmitButtonPress={() => props.handleSubmit()}
         >
@@ -77,7 +63,14 @@ export default function SignUpForm({ loading, onSubmit, positions }) {
             onChangeText={text => props.setFieldValue('last_name', text)}
             error={props.touched.last_name && props.errors.last_name}
           />
-
+          <SelectField
+            label="ಲಿಂಗ"
+            value={props.values.gender}
+            onChange={value => props.setFieldValue('gender', value)}
+            error={props.touched.gender && props.errors.gender}
+            placeholder={'ಲಿಂಗವನ್ನು ಆಯ್ಕೆ ಮಾಡಿ'}
+            options={[{ name: 'ಗಂಡು', value: 'Male' }, { name: 'ಹೆಣ್ಣು ', value: 'Female' }, { name: 'ಇತರೆ', value: 'Others' }]}
+          />
           <FormField
             label="ಮೊಬೈಲ್ ಸಂಖ್ಯೆ"
             keyboardType="phone-pad"
@@ -87,14 +80,14 @@ export default function SignUpForm({ loading, onSubmit, positions }) {
           />
           <FormField
             label="ಪಾಸ್ವರ್ಡ್"
-            secureTextEntry
+            secure
             value={props.values.password}
             onChangeText={text => props.setFieldValue('password', text)}
             error={props.touched.password && props.errors.password}
           />
           <FormField
             label="ಪಾಸ್ವರ್ಡ್ ದೃಢೀಕರಣ"
-            secureTextEntry
+            secure
             value={props.values.password_confirmation}
             onChangeText={text => props.setFieldValue('password_confirmation', text)}
             error={props.touched.password_confirmation && props.errors.password_confirmation}

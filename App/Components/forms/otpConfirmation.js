@@ -28,12 +28,13 @@ export default function OTPValidationForm({ loading, onSubmit }) {
             render={props => (
                 <FormContainer
                     loading={loading}
-                    submitButtonText='ಸಲ್ಲಿಸಿ'
+                    submitButtonText='ನೋಂದಾಯಿಸಿ'
                     onSubmitButtonPress={() => props.handleSubmit()}
                 >
                     <FormField
                         label="ಒಟಿಪಿ"
                         value={props.values.otp}
+                        keyboardType="phone-pad"
                         onChangeText={text => props.setFieldValue('otp', text)}
                         error={props.touched.otp && props.errors.otp}
                     />
