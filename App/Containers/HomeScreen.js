@@ -102,8 +102,11 @@ class HomeScreen extends React.Component {
   }
 
   render() {
-    const { loading, data } = this.props
+    const { loading, data, userObj } = this.props
     const { navigation } = this.props
+    if (userObj && userObj.citizen) {
+      OneSignal.sendTags({name: userObj.citizen.name });
+    }
     return (
       <SafeAreaViewWrapper>
         <NavigationEvents
@@ -142,6 +145,7 @@ const mapStateToProps = (state) => {
     data: state.event.oldListData,
     loading: state.event.fetching,
     listError: state.event.listError,
+    userObj: state.root.userDetails,
   }
 }
 
