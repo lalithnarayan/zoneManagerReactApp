@@ -40,7 +40,6 @@ target 'sunilNaik' do
 
 
 
-  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
   pod 'react-native-image-picker', :path => '../node_modules/react-native-image-picker'
 
@@ -49,6 +48,8 @@ target 'sunilNaik' do
   pod 'react-native-image-resizer', :path => '../node_modules/react-native-image-resizer'
 
   pod 'react-native-onesignal', :path => '../node_modules/react-native-onesignal'
+
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
   target 'sunilNaikTests' do
     inherit! :search_paths

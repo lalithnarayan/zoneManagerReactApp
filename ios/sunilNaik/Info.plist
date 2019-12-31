@@ -40,7 +40,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>This will let you attach images to give us feedback on the activities taken up in the constituency</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>NSMainNibFile</key>
 	<string>LaunchScreen</string>
 	<key>NSMicrophoneUsageDescription</key>
@@ -51,6 +51,7 @@
 	<string>$(PRODUCT_NAME) would like access to your photo gallery and this will let you attach images to give us feedback on the activities taken up in the constituency</string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Fontisto.ttf</string>
 		<string>Roboto_medium.ttf</string>
 		<string>Roboto.ttf</string>
 		<string>rubicon-icon-font.ttf</string>
@@ -64,12 +65,11 @@
 		<string>FontAwesome5_Solid.ttf</string>
 		<string>Foundation.ttf</string>
 		<string>Ionicons.ttf</string>
-		<string>MaterialIcons.ttf</string>
 		<string>MaterialCommunityIcons.ttf</string>
-		<string>SimpleLineIcons.ttf</string>
+		<string>MaterialIcons.ttf</string>
 		<string>Octicons.ttf</string>
+		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
-		<string>Fontisto.ttf</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>
