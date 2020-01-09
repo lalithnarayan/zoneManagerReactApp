@@ -8,6 +8,7 @@ import { Icon } from 'native-base'
 const CourseDetailsWrapper = styled.View`
   flex: 1;
   margin-left: 8;
+  margin-top: 4;
 `
 
 export const LessonType = styled(SubHeading)`

@@ -102,12 +102,12 @@ class BeneficiaryList extends Component {
         image: data.image,
         subTitleLabel: 'ಯೋಜನೆ ಪ್ರಕಾರ',
         subTitle: data.scheme_type,
-        desc: data.granted_relief,
         metaData: [
           { title: 'ಹೆಸರು', description: data.beneficiary_name },
           { title: 'ಅರ್ಜಿ ದಿನಾಂಕ', description: data.application_date },
           { title: 'ಹಾಲಿ ಸ್ಥಿತಿ', description: data.status },
           { title: 'ಷರಾ', description: data.remarks },
+          { title: 'ನೀಡಲಾದ ಪರಿಹಾರ', description: data.granted_relief },
         ]
       }
     )

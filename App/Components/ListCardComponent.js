@@ -21,12 +21,13 @@ const CourseTitle = styled.Text.attrs({
   margin-top: 8;
 `
 
-const PricesWrapper = styled.View`
+const PricesWrapper = styled.Text`
   flex-direction: row;
   font-size: 10;
   color: #8a8a8f;
-  margin-top: 2;
-  margin-bottom: 2;
+  margin-top: 4;
+  margin-bottom: 4;
+
 `
 
 const DetailsWrapper = styled.View`
