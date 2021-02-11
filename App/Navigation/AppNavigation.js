@@ -28,6 +28,7 @@ import FeedbackList from '../Containers/FeedbackList';
 import FeedbackDetailScreen from '../Containers/FeedbackDetail';
 
 import UserSettings from '../Containers/UserSettings';
+import FacebookPage from '../Containers/FacebookPage';
 
 // These Are the post authencation Screens
 import DevelopmentWorksList from '../Containers/DevelopmentWorksList'
@@ -68,6 +69,9 @@ const MyDrawerNavigator = createDrawerNavigator({
   },
   UserSettings: {
     screen: UserSettings,
+  },
+  FacebookPage:{
+    screen: FacebookPage,
   },
   Notifications: {
     screen: LaunchScreen,

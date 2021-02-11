@@ -42,6 +42,12 @@ export const Menulist = [
     type: 'Octicons',
     route: 'BeneficiaryListingScreen'
   },
+    {
+    name: 'Facebook Page',
+    icon: 'facebook-square',
+    type: 'FontAwesome',
+    route: 'FacebookPage'
+  },
   {
     name: 'Profile',
     icon: 'user',
